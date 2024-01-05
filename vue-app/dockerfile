@@ -1,0 +1,23 @@
+# Use a imagem Node.js LTS como base
+FROM node:14-alpine
+
+# Defina o diretório de trabalho no qual o aplicativo será copiado
+WORKDIR /usr/src/app
+
+# Copie os arquivos de dependências e defina-os
+COPY package*.json ./
+
+# Instale as dependências do projeto
+RUN npm install
+
+# Copie todos os arquivos do diretório atual para o diretório de trabalho
+COPY . .
+
+# Compile o projeto
+RUN npm run build
+
+# Exponha a porta que será usada pelo servidor do Vue.js
+EXPOSE 8080
+
+# Inicialize o aplicativo quando o contêiner for iniciado
+CMD ["npm", "run", "serve"]

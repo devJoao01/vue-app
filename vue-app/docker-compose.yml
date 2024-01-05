@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  vue-app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+    command: ["npm", "run", "serve"]
+    environment:
+      - NODE_ENV=development
+
+  vue-build:
+    image: node:14-alpine
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: ["npm", "run", "build"]
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/default.conf
+      - ./dist:/usr/share/nginx/html
+    depends_on:
+      - vue-build
