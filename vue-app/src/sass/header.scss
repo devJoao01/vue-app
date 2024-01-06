@@ -30,7 +30,8 @@ header {
           bottom: -2px;
         }
 
-        &:hover {
+        &:hover,
+        &.active {
           &:before {
             width: 100%;
           }
