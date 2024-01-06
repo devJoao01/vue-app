@@ -1,0 +1,41 @@
+header {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 8%);
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >nav {
+      display: none;
+      align-items: center;
+      gap: 15px;
+
+      @media (min-width:992px) {
+        display: flex;
+      }
+
+      >a {
+        text-decoration: none;
+        position: relative;
+        font-size: 15px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background-color: red;
+          transition: all .4s ease;
+          bottom: -2px;
+        }
+
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

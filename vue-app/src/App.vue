@@ -1,18 +1,21 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
+    <Header />
+    <appBar />
+    <router-view />
   </v-app>
 </template>
 
 <script>
+import Header from './components/The-Header';
+import appBar from './components/AppBar.vue';
 
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  components: {
+    Header,
+    appBar,
+  },
 }
 </script>
