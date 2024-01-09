@@ -10,16 +10,21 @@
                 </nav>
             </div>
         </v-container>
+        <TheSidebar />
     </header>
 </template>
 
 <script>
+import TheSidebar from './The-Sidebar.vue';
 export default {
+    components: {
+        TheSidebar
+    },
     methods: {
         isActive(route) {
             return this.$route.path === route
         }
-    }
+    },
 };
 </script>
 

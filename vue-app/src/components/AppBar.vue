@@ -16,6 +16,8 @@
 
       <span>Nearby</span>
     </v-btn>
+
+    <TheSidebar />
   </v-bottom-navigation>
 </template>
   
